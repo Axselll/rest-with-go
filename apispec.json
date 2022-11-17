@@ -1,0 +1,79 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "API Hewan",
+        "description": "API untuk hewan-hewan tercinta",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "description": "API Hewan",
+            "url": "http://{env}:6969/api/v1",
+            "variables": {
+                "env": {
+                    "description": "Server env",
+                    "default": "localhost",
+                    "enum": [
+                        "localhost",
+                        "prod"
+                    ]
+                }
+            }
+        }
+    ],
+    "paths": {
+        "/hewan": {
+            "get": {
+                "summary": "Get all hewan data",
+                "description": "Get all hewan data on the database",
+                "responses": {}
+            },
+            "post": {
+                "summary": "Create a hewan data",
+                "description": "Create a hewan data on the database",
+                "responses": {}
+            }
+        },
+        "/hewan{id}": {
+            "get": {
+                "summary": "Get one hewan data",
+                "description": "Get one hewan data from the database",
+                "parameters": [
+                    {
+                        "description": "hewan id for get one data",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            },
+            "delete": {
+                "summary": "Delete a hewan",
+                "description": "Delete a hewan data on the database",
+                "parameters": [
+                    {
+                        "description": "hewan id for deleting a data",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            },
+            "put": {
+                "summary": "Update a hewan",
+                "description": "Update a hewan data on the database",
+                "parameters": [
+                    {
+                        "description": "hewan id for updating a data",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    }
+}
