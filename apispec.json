@@ -24,55 +24,389 @@
     "paths": {
         "/hewan": {
             "get": {
+                "security": [
+                    {
+                        "HewanAuth": []
+                    }
+                ],
+                "tags": [
+                    "Hewan"
+                ],
                 "summary": "Get all hewan data",
                 "description": "Get all hewan data on the database",
-                "responses": {}
+                "responses": {
+                    "200": {
+                        "description": "success get all data hewan",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "number"
+                                        },
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/arrayHewan"
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "get_all": {
+                                        "description": "example success get all data hewan",
+                                        "value": [
+                                            {
+                                                "code": 200,
+                                                "status": "OK",
+                                                "data": {
+                                                    "id": 1,
+                                                    "name": "Anjing"
+                                                }
+                                            },
+                                            {
+                                                "code": 200,
+                                                "status": "OK",
+                                                "data": {
+                                                    "id": 10,
+                                                    "name": "Kucing"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "post": {
+                "security": [
+                    {
+                        "HewanAuth": []
+                    }
+                ],
+                "tags": [
+                    "Hewan"
+                ],
                 "summary": "Create a hewan data",
                 "description": "Create a hewan data on the database",
-                "responses": {}
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createOrUpdateHewan"
+                            },
+                            "examples": {
+                                "1": {
+                                    "description": "example create data anjing",
+                                    "value": {
+                                        "name": "Anjing"
+                                    }
+                                },
+                                "10": {
+                                    "description": "example create data kucing",
+                                    "value": {
+                                        "name": "kucing"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success create data hewan",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "number"
+                                        },
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/hewan"
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "anjing": {
+                                        "description": "example create data anjing",
+                                        "$ref": "#/components/examples/anjing"
+                                    },
+                                    "kucing": {
+                                        "description": "example create data kucing",
+                                        "$ref": "#/components/examples/kucing"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         },
         "/hewan{id}": {
             "get": {
+                "security": [
+                    {
+                        "HewanAuth": []
+                    }
+                ],
+                "tags": [
+                    "Hewan"
+                ],
                 "summary": "Get one hewan data",
-                "description": "Get one hewan data from the database",
+                "description": "Get one hewan data on the database",
                 "parameters": [
                     {
                         "description": "hewan id for get one data",
                         "name": "id",
                         "in": "path",
-                        "required": true
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        },
+                        "examples": {
+                            "1": {
+                                "description": "example get by id 1",
+                                "value": "Anjing"
+                            },
+                            "10": {
+                                "description": "example get by id 10",
+                                "value": "Kucing"
+                            }
+                        }
                     }
                 ],
-                "responses": {}
+                "responses": {
+                    "200": {
+                        "description": "success get one data hewan",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "number"
+                                        },
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/arrayHewan"
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "get_one": {
+                                        "description": "example get one data",
+                                        "$ref": "#/components/examples/anjing"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "delete": {
+                "security": [
+                    {
+                        "HewanAuth": []
+                    }
+                ],
+                "tags": [
+                    "Hewan"
+                ],
                 "summary": "Delete a hewan",
                 "description": "Delete a hewan data on the database",
                 "parameters": [
                     {
-                        "description": "hewan id for deleting a data",
-                        "name": "id",
-                        "in": "path",
-                        "required": true
+                        "$ref": "#/components/parameters/id"
                     }
                 ],
-                "responses": {}
+                "responses": {
+                    "200": {
+                        "description": "success delete one data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "number"
+                                        },
+                                        "status": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "put": {
+                "security": [
+                    {
+                        "HewanAuth": []
+                    }
+                ],
+                "tags": [
+                    "Hewan"
+                ],
                 "summary": "Update a hewan",
                 "description": "Update a hewan data on the database",
                 "parameters": [
                     {
-                        "description": "hewan id for updating a data",
-                        "name": "id",
-                        "in": "path",
-                        "required": true
+                        "$ref": "#/components/parameters/id"
                     }
                 ],
-                "responses": {}
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createOrUpdateHewan"
+                            },
+                            "examples": {
+                                "1": {
+                                    "description": "example update data anjing",
+                                    "value": {
+                                        "name": "Anjing"
+                                    }
+                                },
+                                "10": {
+                                    "description": "example update data kucing",
+                                    "value": {
+                                        "name": "kucing"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success create data hewan",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "number"
+                                        },
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/hewan"
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "Anjing": {
+                                        "description": "example update data anjing",
+                                        "$ref": "#/components/examples/anjing"
+                                    },
+                                    "Kucing": {
+                                        "description": "example update data kucing",
+                                        "$ref": "#/components/examples/kucing"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "HewanAuth": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "X-API-KEY",
+                "description": "Auth for hewan API"
+            }
+        },
+        "parameters": {
+            "id": {
+                "description": "hewan id for updating a data",
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "examples": {
+                    "1": {
+                        "description": "example passing id 1 on put",
+                        "value": "Anjing"
+                    },
+                    "10": {
+                        "description": "example passing id 10 on put",
+                        "value": "Kucing"
+                    }
+                }
+            }
+        },
+        "schemas": {
+            "hewan": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string",
+                        "required": true
+                    }
+                }
+            },
+            "createOrUpdateHewan": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "required": true
+                    }
+                }
+            },
+            "arrayHewan": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/hewan"
+                }
+            }
+        },
+        "examples": {
+            "anjing": {
+                "value": {
+                    "code": 200,
+                    "status": "OK",
+                    "data": {
+                        "id": 1,
+                        "name": "Anjing"
+                    }
+                }
+            },
+            "kucing": {
+                "value": {
+                    "code": 200,
+                    "status": "OK",
+                    "data": {
+                        "id": 10,
+                        "name": "Kucing"
+                    }
+                }
             }
         }
     }
