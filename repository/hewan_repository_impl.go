@@ -11,6 +11,10 @@ import (
 type HewanRepositoryImpl struct {
 }
 
+func NewHewanRepository() HewanRepository {
+	return &HewanRepositoryImpl{}
+}
+
 func (repository *HewanRepositoryImpl) Save(ctx context.Context, tx *sql.Tx, hewan domain.Hewan) domain.Hewan {
 	query := "insert into hewan(name) values (?)"
 
@@ -42,6 +46,7 @@ func (repository *HewanRepositoryImpl) FindByID(ctx context.Context, tx *sql.Tx,
 	query := "select id, name from hewan where id = ?"
 	res, err := tx.QueryContext(ctx, query, id)
 	helper.CheckError(err)
+	defer res.Close()
 
 	hewan := domain.Hewan{}
 	if res.Next() {
@@ -57,6 +62,7 @@ func (repository *HewanRepositoryImpl) FindAll(ctx context.Context, tx *sql.Tx) 
 	query := "select id, name from hewan"
 	res, err := tx.QueryContext(ctx, query)
 	helper.CheckError(err)
+	defer res.Close()
 
 	var semua_hewan []domain.Hewan
 	for res.Next() {
