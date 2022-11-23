@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"go-rest/entity/domain"
 	"go-rest/entity/web"
+	"go-rest/exception"
 	"go-rest/helper"
 	"go-rest/repository"
 
@@ -50,7 +51,9 @@ func (service *HewanServiceImpl) Update(ctx context.Context, req web.HewanUpdate
 	defer helper.CommitOrRollback(tx)
 
 	hewan, err := service.HewanRepository.FindByID(ctx, tx, req.Id)
-	helper.CheckError(err)
+	if err != nil {
+		panic(exception.NewNotFoundErr(err.Error()))
+	}
 
 	hewan.Name = req.Name
 
@@ -65,7 +68,9 @@ func (service *HewanServiceImpl) Delete(ctx context.Context, id int) {
 	defer helper.CommitOrRollback(tx)
 
 	hewan, err := service.HewanRepository.FindByID(ctx, tx, id)
-	helper.CheckError(err)
+	if err != nil {
+		panic(exception.NewNotFoundErr(err.Error()))
+	}
 
 	service.HewanRepository.Delete(ctx, tx, hewan)
 }
@@ -76,7 +81,9 @@ func (service *HewanServiceImpl) FindById(ctx context.Context, id int) web.Hewan
 	defer helper.CommitOrRollback(tx)
 
 	hewan, err := service.HewanRepository.FindByID(ctx, tx, id)
-	helper.CheckError(err)
+	if err != nil {
+		panic(exception.NewNotFoundErr(err.Error()))
+	}
 
 	return helper.ToHewanResponse(hewan)
 }

@@ -3,6 +3,7 @@ package main
 import (
 	"go-rest/app"
 	"go-rest/controller"
+	"go-rest/exception"
 	"go-rest/helper"
 	"go-rest/repository"
 	"go-rest/service"
@@ -29,6 +30,8 @@ func main() {
 	router.POST("/api/hewan", hewanContoller.Create)
 	router.PUT("/api/hewan/:id", hewanContoller.Update)
 	router.DELETE("/api/hewan/:id", hewanContoller.Delete)
+
+	router.PanicHandler = exception.ErrHandler
 
 	server := http.Server{
 		Addr:    "localhost:6969",
