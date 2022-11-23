@@ -1,13 +1,11 @@
 <h1 align="center">Go Rest</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/Axselll/go-rest?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/go-mod/go-version/Axselll/rest-with-go">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/Axselll/go-rest?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/Axselll/rest-with-go">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Axselll/go-rest?color=56BEB8">
-
-  <img alt="License" src="https://img.shields.io/github/license/Axselll/go-rest?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Axselll/rest-with-go">
 
   <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/{{YOUR_GITHUB_USERNAME}}/go-rest?color=56BEB8" /> -->
 
@@ -30,8 +28,7 @@
   <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
   <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
-  <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">Author</a>
+  <a href="https://github.com/Axselll" target="_blank">Author</a>
 </p>
 
 <br>
@@ -62,7 +59,7 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) an
 
 ```bash
 # Clone this project
-$ git clone https://github.com/{{Axselll}}/go-rest
+$ git clone https://github.com/Axselll/go-rest
 
 # Access
 $ cd go-rest
@@ -77,7 +74,7 @@ $ go run main.go
 ```
 
 
-Made with :heart: by <a href="https://github.com/{{Axselll}}" target="_blank">{{Axselll}}</a>
+Made with :heart: by <a href="https://github.com/{{Axselll}}" target="_blank">Axselll</a>
 
 &#xa0;
 
