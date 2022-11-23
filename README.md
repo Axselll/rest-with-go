@@ -39,8 +39,8 @@ This project is for learning purposes (probably)
 
 ## :sparkles: Features ##
 
-:heavy_check_mark: Basic crud with api specification is on apispec.json;\
-:heavy_check_mark: Authentication (TBA);\
+:heavy_check_mark: Basic crud with api specification is on apispec.json\
+:heavy_check_mark: Authentication (TBA)
 
 ## :rocket: Technologies ##
 
