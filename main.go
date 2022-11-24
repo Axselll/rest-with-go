@@ -5,6 +5,7 @@ import (
 	"go-rest/controller"
 	"go-rest/exception"
 	"go-rest/helper"
+	"go-rest/middleware"
 	"go-rest/repository"
 	"go-rest/service"
 	"net/http"
@@ -12,10 +13,14 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 
 	"github.com/go-playground/validator/v10"
+	"github.com/joho/godotenv"
 	"github.com/julienschmidt/httprouter"
 )
 
 func main() {
+
+	errEnv := godotenv.Load("local.env")
+	helper.CheckError(errEnv)
 
 	db := app.NewDB()
 	validate := validator.New()
@@ -35,9 +40,9 @@ func main() {
 
 	server := http.Server{
 		Addr:    "localhost:6969",
-		Handler: router,
+		Handler: middleware.NewAuthMiddleware(router),
 	}
 
-	err := server.ListenAndServe()
-	helper.CheckError(err)
+	errServer := server.ListenAndServe()
+	helper.CheckError(errServer)
 }

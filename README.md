@@ -40,7 +40,7 @@ This project is for learning purposes (probably)
 ## :sparkles: Features ##
 
 :heavy_check_mark: Basic crud with api specification is on apispec.json\
-:heavy_check_mark: Authentication (TBA)
+:heavy_check_mark: Authentication (API Key)
 
 ## :rocket: Technologies ##
 
@@ -50,10 +50,11 @@ The following tools were used in this project:
 - [Httprouter](https://github.com/julienschmidt/httprouter)
 - [Validator](https://github.com/go-playground/validator)
 - [Testify](https://github.com/stretchr/testify)
+- [Godotenv](https://github.com/joho/godotenv)
 
 ## :white_check_mark: Requirements ##
 
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Go](https://go.dev/) installed.
+Before starting :checkered_flag:, you need to have [Git](https://git-scm.com), [Go](https://go.dev/) installed, create a `local.env` file, after that create an `APIKey` and load it with [Godotenv](https://github.com/joho/godotenv).
 
 ## :checkered_flag: Starting ##
 
