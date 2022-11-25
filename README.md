@@ -74,6 +74,9 @@ $ go run main.go
 # The server will initialize in the <http://localhost:6969/api/hewan>
 ```
 
+## :memo: Test ##
+- [] Unit Test
+- [x] Integration Test
 
 Made with :heart: by <a href="https://github.com/{{Axselll}}" target="_blank">Axselll</a>
 
