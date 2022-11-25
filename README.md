@@ -76,7 +76,6 @@ $ go run main.go
 ```
 
 ## :memo: Tests ##
-- [ ] Unit Test
 - [x] Integration Test
 
 Made with :heart: by <a href="https://github.com/{{Axselll}}" target="_blank">Axselll</a>

@@ -25,7 +25,7 @@ func NewHewanService(hewanRepository repository.HewanRepository, DB *sql.DB, Val
 		Validate:        Validate}
 }
 
-func (service HewanServiceImpl) Create(ctx context.Context, req web.HewanCreateReq) web.HewanResponse {
+func (service *HewanServiceImpl) Create(ctx context.Context, req web.HewanCreateReq) web.HewanResponse {
 	err := service.Validate.Struct(req)
 	helper.CheckError(err)
 
