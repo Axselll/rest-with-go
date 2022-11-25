@@ -3,7 +3,6 @@ package main
 import (
 	"go-rest/app"
 	"go-rest/controller"
-	"go-rest/exception"
 	"go-rest/helper"
 	"go-rest/middleware"
 	"go-rest/repository"
@@ -14,7 +13,6 @@ import (
 
 	"github.com/go-playground/validator/v10"
 	"github.com/joho/godotenv"
-	"github.com/julienschmidt/httprouter"
 )
 
 func main() {
@@ -26,17 +24,9 @@ func main() {
 	validate := validator.New()
 	hewanRepository := repository.NewHewanRepository()
 	hewanService := service.NewHewanService(hewanRepository, db, validate)
-	hewanContoller := controller.NewHewanController(hewanService)
+	hewanController := controller.NewHewanController(hewanService)
 
-	router := httprouter.New()
-
-	router.GET("/api/hewan", hewanContoller.FindAll)
-	router.GET("/api/hewan/:id", hewanContoller.FindById)
-	router.POST("/api/hewan", hewanContoller.Create)
-	router.PUT("/api/hewan/:id", hewanContoller.Update)
-	router.DELETE("/api/hewan/:id", hewanContoller.Delete)
-
-	router.PanicHandler = exception.ErrHandler
+	router := app.NewRouter(hewanController)
 
 	server := http.Server{
 		Addr:    "localhost:6969",

@@ -21,7 +21,7 @@ func (m AuthMiddleware) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		m.Handler.ServeHTTP(w, r)
 	} else {
 		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(http.StatusBadRequest)
+		w.WriteHeader(http.StatusUnauthorized)
 
 		webRes := web.WebResponse{
 			Code:   http.StatusUnauthorized,
