@@ -29,7 +29,7 @@ func main() {
 	router := app.NewRouter(hewanController)
 
 	server := http.Server{
-		Addr:    "localhost:6969",
+		Addr:    ":6969",
 		Handler: middleware.NewAuthMiddleware(router),
 	}
 

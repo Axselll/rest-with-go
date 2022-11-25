@@ -55,7 +55,7 @@ The following tools were used in this project:
 
 ## :white_check_mark: Requirements ##
 
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com), [Go](https://go.dev/) installed, create a `local.env` file, after that create an `APIKey` and load it with [Godotenv](https://github.com/joho/godotenv).
+Before starting :checkered_flag:, you need to have [Git](https://git-scm.com), [Go](https://go.dev/) installed, create a `local.env` file, after that create an `APIKey` and load it with [Godotenv](https://github.com/joho/godotenv), for `.dockerignore` do not include `local.env` otherwise it will return panic and you also can ignore the `local.env` and use your own `production.env` suit yourself.
 
 ## :checkered_flag: Starting ##
 
