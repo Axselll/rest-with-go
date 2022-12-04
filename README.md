@@ -52,6 +52,7 @@ The following tools were used in this project:
 - [Validator](https://github.com/go-playground/validator)
 - [Testify](https://github.com/stretchr/testify)
 - [Godotenv](https://github.com/joho/godotenv)
+- [GoogleWire](https://pkg.go.dev/github.com/google/wire)
 
 ## :white_check_mark: Requirements ##
 
@@ -70,7 +71,7 @@ $ cd go-rest
 $ go get
 
 # Run the project
-$ go run main.go
+$ go run .
 
 # The server will initialize in the <http://localhost:6969/api/hewan>
 ```

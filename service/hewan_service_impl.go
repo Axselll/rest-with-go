@@ -18,7 +18,7 @@ type HewanServiceImpl struct {
 	Validate        *validator.Validate
 }
 
-func NewHewanService(hewanRepository repository.HewanRepository, DB *sql.DB, Validate *validator.Validate) HewanService {
+func NewHewanService(hewanRepository repository.HewanRepository, DB *sql.DB, Validate *validator.Validate) *HewanServiceImpl {
 	return &HewanServiceImpl{
 		HewanRepository: hewanRepository,
 		DB:              DB,

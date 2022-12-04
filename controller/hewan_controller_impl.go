@@ -14,7 +14,7 @@ type HewanControllerImpl struct {
 	HewanService service.HewanService
 }
 
-func NewHewanController(hewanService service.HewanService) HewanController {
+func NewHewanController(hewanService service.HewanService) *HewanControllerImpl {
 	return &HewanControllerImpl{
 		HewanService: hewanService,
 	}

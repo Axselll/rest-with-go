@@ -11,7 +11,7 @@ import (
 type HewanRepositoryImpl struct {
 }
 
-func NewHewanRepository() HewanRepository {
+func NewHewanRepository() *HewanRepositoryImpl {
 	return &HewanRepositoryImpl{}
 }
 
