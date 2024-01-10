@@ -36,7 +36,7 @@
 
 ## :dart: About ##
 
-This project is for learning purposes (probably)
+This project is for learning purposes.
 
 ## :sparkles: Features ##
 
